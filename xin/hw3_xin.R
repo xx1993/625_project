@@ -17,7 +17,6 @@ for (i in 1:27307) {
       temp <- substring(temp,9)
       date <- str_match(temp, "[0-9]{2}/[0-9]{2}/[0-9]{4}")
       price <- str_match(temp, "\\$[0-9]*,*[0-9]*")
-      temp <- gsub(".*<td>", "", temp)
       temp <- gsub("</td>.*", "", temp)
       temp <- gsub("amp;", "", temp)
       temp <- paste(temp, price, date, sep=", ")
