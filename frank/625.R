@@ -80,7 +80,7 @@ tonum<-function(x, trans){
 getsale<-function(tab){
   #Function to retrieve information in table of sale history
   #Including first 5 'Owner','Sale Price','Sale Date'
-  tab[,'Owner']<-gsub('&amp', '&', tab[,'Owner'])
+  tab[,'Owner']<-gsub('&amp[;]*', '&', tab[,'Owner'])
   tab[,'Sale Price']<-money2num(tab[,'Sale Price'])
   sales<-as.vector(t(as.matrix(tab[1:5,c('Owner','Sale Price','Sale Date')])))
   return(trimws(sales))
