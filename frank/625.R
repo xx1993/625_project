@@ -1,15 +1,17 @@
 #STAT625 Homework1 
 #Real estate information extraction
-#Written by Dingjue Ji, 09/05/2016
+#Written by Dingjue Ji, 09/12/2016
 
 #Important Note:
 #For those with several buildings, the number of rooms
-#will be summed up. Besides, the room numbers will be 
-#counted as 0 only if they exist and are 0. The others
-#without information will be recorded as NA. During the
+#will be counted only for the first one.
+#Besides, the room numbers will be counted as 0 only if 
+#they exist and are 0. 
+#The others without information will be recorded as NA. During the
 #summation, only number with information will be counted.
 
 #First 25 columns with their names, patterns, extracting keywords
+
 col.names<-c('pid','location','totval','address',
              'yearbuilt','sqft','replcost','pctgood',
              'style','model','grade','occupancy',
@@ -41,7 +43,8 @@ col.patterns<-c('', '"MainContent_lblLocation"',
                 '"MainContent_lblLndAppr"',
                 ''
                 )
-
+#Why not use rep? Because I want to have a close look at
+#each term.
 col.repat<-c('', '<span[^<>]*>[^<>]*</span>',
              '<span[^<>]*>[^<>]*</span>',
              '<span[^<>]*>[^<>]*</span>',
