@@ -9,7 +9,7 @@
 #they exist and are 0. 
 #The others without information will be recorded as NA.
 
-#First 25 columns with their names, patterns, extracting keywords
+#First 24 columns with their names, patterns, extracting keywords
 col.names<-c('pid','location','totval','address',
              'yearbuilt','sqft','replcost','pctgood',
              'style','model','grade','occupancy',
