@@ -7,8 +7,7 @@
 #will be counted only for the first one.
 #Besides, the room numbers will be counted as 0 only if 
 #they exist and are 0. 
-#The others without information will be recorded as NA. During the
-#summation, only number with information will be counted.
+#The others without information will be recorded as NA.
 
 #First 25 columns with their names, patterns, extracting keywords
 
