@@ -185,7 +185,7 @@ myparse<-function(i){
   #Only for sapply
   fname<-paste(i, '.html', sep = '')
   #Read files when they exist
-  myinfo<-rep(NA, 40)
+  myinfo<-rep(NA, 41)
   myinfo[40:41]<-0
   myinfo[1]<-i
   if(file.exists(fname)){
@@ -221,9 +221,16 @@ col.names[25:41]<-c(saleinfo, 'multibuilding', 'nineplus')
 system.time(temp<-sapply(1:27307, myparse))
 info<-as.data.frame(t(temp),stringsAsFactors = FALSE)
 info<-tonum(info, which(col.num==TRUE))
-#Transform the logic columns into the right form.
-info[40]<-info[40]!=0
-info[41]<-info[41]!=0
+#Transform the logic columns into the right form
+info[,40]<-info[,40]!=0
+info[is.na(info[,2]),40]<-NA
+info[,41]<-info[,41]!=0
+info[is.na(info[,14]),41]<-NA
 colnames(info)<-col.names
+#Clean out the confusion for ',' separator
+for(i in c(4, 25, 28, 31, 34, 37)){
+  info[,i]<-gsub(',', '', info[, i])
+}
+
 #Write data into csv file
 write.csv(x = info, file = '625.csv', quote = FALSE, row.names = FALSE)
