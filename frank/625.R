@@ -1,4 +1,4 @@
-#STAT625 Homework1 
+#STAT625 
 #Real estate information extraction
 #Written by Dingjue Ji, 09/12/2016
 
