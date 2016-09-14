@@ -10,7 +10,6 @@
 #The others without information will be recorded as NA.
 
 #First 25 columns with their names, patterns, extracting keywords
-
 col.names<-c('pid','location','totval','address',
              'yearbuilt','sqft','replcost','pctgood',
              'style','model','grade','occupancy',
@@ -148,6 +147,7 @@ catchtab<-function(x, tabname){
     tab<-as.data.frame(t(sapply(content,function(x) strsplit(x, split='\t')[[1]])), stringsAsFactors=FALSE)
     colnames(tab)<-ti
     rownames(tab)<-1:nrow(tab)
+    tab[tab=='&nbsp;']<-NA
     tab[tab=='']<-NA
     return(tab)
   }
