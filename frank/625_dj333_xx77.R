@@ -277,10 +277,6 @@ info[is.na(info[,2]),40]<-NA
 info[,41]<-info[,41]!=0
 info[is.na(info[,14]),41]<-NA
 colnames(info)<-col.names
-#Clean out the confusion for ',' separator
-for(i in c(4, 25, 28, 31, 34, 37)){
-  info[,i]<-gsub(',', '', info[, i])
-}
 
 #Write data into csv file
-write.csv(x = info, file = '625.csv', quote = FALSE, row.names = FALSE)
+write.table(x = info, file = '625.csv', row.names = FALSE, sep=',')
