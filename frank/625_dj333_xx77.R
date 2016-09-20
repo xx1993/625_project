@@ -276,6 +276,11 @@ info[,40]<-info[,40]!=0
 info[is.na(info[,2]),40]<-NA
 info[,41]<-info[,41]!=0
 info[is.na(info[,14]),41]<-NA
+for(i in 1:ncol(info)){
+  info[,i]<-gsub('&nbsp;', NA, info[,i])
+  info[,i]<-gsub('&#39;', NA, info[,i])
+}
+info[,11]<-gsub('GRADE[_:\\s]*', '', info[,11])
 colnames(info)<-col.names
 
 #Write data into csv file
